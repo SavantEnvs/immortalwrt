@@ -1,0 +1,10 @@
+project: savantenvs/immortalwrt
+target: fuzz_osafeloader
+testsuite:
+  - https://$MAYHEM_DOMAIN/$MAYHEM_PROJECT/$MAYHEM_TARGET/testsuite.tar
+  - file://mayhem/fuzz_osafeloader/testsuite
+cmds:
+  - cmd: /mayhem/fuzz_osafeloader -max_len=65536
+    libfuzzer: true
+    timeout: 30
+    dictionary: /mayhem/mayhem/fuzz_osafeloader/fuzz_osafeloader.dict

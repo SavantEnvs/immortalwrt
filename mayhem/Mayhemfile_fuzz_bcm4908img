@@ -1,0 +1,9 @@
+project: savantenvs/immortalwrt
+target: fuzz_bcm4908img
+testsuite:
+  - https://$MAYHEM_DOMAIN/$MAYHEM_PROJECT/$MAYHEM_TARGET/testsuite.tar
+  - file://mayhem/fuzz_bcm4908img/testsuite
+cmds:
+  - cmd: /mayhem/fuzz_bcm4908img -max_len=524288
+    libfuzzer: true
+    timeout: 30
