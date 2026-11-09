@@ -1,0 +1,9 @@
+project: savantenvs/immortalwrt
+target: fuzz_fritz_tffs
+testsuite:
+  - https://$MAYHEM_DOMAIN/$MAYHEM_PROJECT/$MAYHEM_TARGET/testsuite.tar
+  - file://mayhem/fuzz_fritz_tffs/testsuite
+cmds:
+  - cmd: /mayhem/fuzz_fritz_tffs -max_len=65536
+    libfuzzer: true
+    timeout: 30
